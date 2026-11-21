@@ -4,13 +4,20 @@
 # This repo is public. Research content stays on the cluster at
 # /home/lilic/yunyi/ and is not mirrored here.
 
-# Meeting records, experiment results, pre-registrations, literature surveys.
-# These live in /home/lilic/yunyi/docs/ which is its own git repository.
-docs/Meetings/
-docs/Research/
-docs/Papers/
-docs/*.md
-!docs/README.md
+# ---------------------------------------------------------------------------
+# The three working trees are their own git repositories, nested inside this
+# one. They are ignored here on purpose.
+#
+# Without this, `git add -A` would not recurse into them -- it would record
+# each as a bare gitlink, a submodule entry with no .gitmodules. GitHub renders
+# that as a grey row you cannot open, and a clone gets three empty directories.
+#
+# Each tree pushes to its own remote; this repository holds only the layout.
+# See README.md for where each one lives.
+complexa-post/
+RFD4-Proteina/
+docs/
+baselines/
 
 # Third-party PDFs. Redistributing them from a public repo is a copyright
 # question we are not taking on.
