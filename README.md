@@ -28,7 +28,7 @@ happening by accident.
 |---|---|---|
 | `complexa-post/` | `lili-chen/complexa-post` | `develop-yunyi` |
 | `RFD4-Proteina/` | `RosettaCommons/RFD4-Proteina` | `main` |
-| `docs/` | local only, no remote yet | `master` |
+| `docs/` | **no longer separate** — folded into this repository, structure only | — |
 | `baselines/` | not a git repository | — |
 
 Large artifacts — rollouts, checkpoints, evaluation dumps — live on the cluster
@@ -37,10 +37,29 @@ under `/grogu/user/lilic/complexa-post/` and are mirrored nowhere.
 ## This repository is public
 
 So research content is kept out of it by design: meeting records, experiment
-results, pre-registrations and literature surveys stay in `docs/`, which has
-its own git repository and no remote. `.gitignore` also excludes third-party
-PDFs, model weights, generated designs and the symlinks that point into the
-cluster's `/grogu` mount.
+results, pre-registrations and literature surveys live in `docs/` on disk and
+are **not tracked**. `.gitignore` also excludes third-party PDFs, model
+weights, generated designs and the symlinks that point into the cluster's
+`/grogu` mount.
+
+### `docs/` has no version control any more
+
+Its own `.git` was removed on 2026-11-20 so the directory could be folded into
+this repository, and this repository tracks only `docs/README.md`. So those
+897 files are now unversioned.
+
+History up to that point is preserved in `.docs-git-history.bundle` (35 MB,
+kept on disk, not pushed). To get it back:
+
+```bash
+git clone /home/lilic/yunyi/protein-binder/.docs-git-history.bundle docs-restored
+```
+
+This matters more than it looks. On the morning of 2026-11-20 something
+deleted `complexa-post/docs` entirely: 67 tracked files came back from HEAD,
+and 25 that had never been committed survived only because an older copy of
+the tree happened to exist elsewhere. `docs/` is now in that same unprotected
+state.
 
 ## `/home/lilic/yunyi/` keeps symlinks to the old paths
 

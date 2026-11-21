@@ -16,8 +16,22 @@
 # See README.md for where each one lives.
 complexa-post/
 RFD4-Proteina/
-docs/
 baselines/
+
+# docs/ is NOT one of them any more -- its own .git was removed and the
+# directory folded into this repository. But this repository is public, so only
+# the structure is tracked: README.md and nothing else. Research content stays
+# on disk, untracked.
+#
+# Consequence worth knowing: those 897 files now have NO version control at
+# all. Their history up to 2026-11-20 is preserved in
+# .docs-git-history.bundle (restore with `git clone <bundle> docs-restored`),
+# but changes after that point are not recorded anywhere.
+docs/*
+!docs/README.md
+
+# The bundle itself: 35 MB of history, kept on disk, not pushed.
+.docs-git-history.bundle
 
 # Third-party PDFs. Redistributing them from a public repo is a copyright
 # question we are not taking on.
