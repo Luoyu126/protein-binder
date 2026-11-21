@@ -1,0 +1,48 @@
+# ---------------------------------------------------------------------------
+# What is deliberately NOT in this repository
+# ---------------------------------------------------------------------------
+# This repo is public. Research content stays on the cluster at
+# /home/lilic/yunyi/ and is not mirrored here.
+
+# Meeting records, experiment results, pre-registrations, literature surveys.
+# These live in /home/lilic/yunyi/docs/ which is its own git repository.
+docs/Meetings/
+docs/Research/
+docs/Papers/
+docs/*.md
+!docs/README.md
+
+# Third-party PDFs. Redistributing them from a public repo is a copyright
+# question we are not taking on.
+*.pdf
+
+# Model weights. Available from their own upstreams, and anything committed
+# here stays in history forever.
+**/_model_weights/
+**/ckpts/
+*.ckpt
+*.pt
+*.pth
+
+# Generated artifacts, regenerable from the scripts that produced them.
+**/analysis/
+**/evaluation_results/
+**/designs/
+**/rollout/
+**/pools/
+
+# Symlinks into the cluster's /grogu mount; dangling anywhere else.
+complexa-post/inference
+complexa-post/evaluation_results
+
+# Python / tooling
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+*.swp
